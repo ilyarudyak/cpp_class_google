@@ -38,9 +38,26 @@ void exam() {
     cout << "The final grade is: " << setprecision(1) << fixed << finalGrade << endl;
 }
 
+void time() {
+    int numberOfSeconds;
+    cout << "Number of seconds: ";
+    cin >> numberOfSeconds;
+
+    int hours = numberOfSeconds / 3600;
+    cout << "Hours: " << hours << endl;
+
+    numberOfSeconds -= 3600 * hours;
+    int minutes = numberOfSeconds / 60;
+    cout << "Minuts: " << minutes << endl;
+
+    numberOfSeconds -= 60 * minutes;
+    cout << "Seconds: " << numberOfSeconds << endl;
+}
+
 int main() {
 
-    exam();
+    time();
+//    exam();
 //    cricket();
     return 0;
 }
