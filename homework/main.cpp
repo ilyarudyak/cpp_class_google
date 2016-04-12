@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <cmath>
 
 using namespace std;
 
@@ -51,6 +52,8 @@ void time() {
     numberOfSeconds -= 60 * minutes;
     cout << "Seconds: " << numberOfSeconds << endl;
 }
+
+// exercise 4
 void printLetters(int numberOfLetters, string letter) {
     for (int i = 0; i < numberOfLetters; ++i) {
         cout << letter;
@@ -77,8 +80,6 @@ void printLetters(int firstLetterPosition,
     }
     cout << endl;
 }
-
-// exercise 4
 void printF() {
     string letter = "F";
     printLetters(5, letter);
@@ -152,14 +153,49 @@ void printLetter(char letter) {
     }
 }
 
+// exercise 5
+int reverseInt(int acc, int exp, int n) {
+
+//    cout << acc << " " << exp << " " << n << endl;
+
+    if (n == 0) {
+        return acc;
+    } else {
+        return reverseInt(acc + (int)((n % 10) * pow(10, exp)),
+                   exp - 1, (n - (n % 10)) / 10);
+    }
+}
+int reverseInt(int n) {
+    return reverseInt(0, (int)to_string(n).size() - 1, n);
+}
+void magicNumber() {
+    int number = 0;
+    cout << "enter magic number: ";
+    cin >> number;
+
+    int reverseNumber = reverseInt(number);
+    cout << "reverse=" << reverseNumber << endl;
+
+    int subtract = number - reverseNumber;
+    cout << "subtract=" << subtract << endl;
+
+    int reverseSubtract = reverseInt(subtract);
+    cout << "reverse=" << reverseSubtract << endl;
+
+    int add = subtract + reverseSubtract;
+    cout << add << endl;
+}
+
 int main() {
 
-    string banner = "FREEZY BREEZE";
-    for (int i = 0; i < banner.size(); ++i) {
-        printLetter(banner[i]);
-        cout << endl;
-    }
+//    cout << reverseInt(901) << endl;
+    magicNumber();
 
+//    string banner = "FREEZY BREEZE";
+//    for (int i = 0; i < banner.size(); ++i) {
+//        printLetter(banner[i]);
+//        cout << endl;
+//    }
 //    time();
 //    exam();
 //    cricket();
