@@ -25,7 +25,6 @@ void permute(string books) {
     }
 }
 
-
 int main() {
 //    animals();
     permute("123456");
