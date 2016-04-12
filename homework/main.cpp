@@ -202,9 +202,49 @@ void decode(string code) {
     cout << decodeYear(code[3]) << endl;
 }
 
+// exercise 7
+int finalTransform(int n) {
+    if (n == 9) {
+        return n;
+    } else if (n % 2 != 0) {
+        return (n + 11 < 20) ? (n + 11) / 2 : (n - 11) / 2;
+    } else {
+        return n / 2;
+    }
+}
+void cardTrick() {
+
+    int number = 0;
+    cout << "enter number: ";
+    cin >> number;
+
+    string abc = to_string(number);
+    cout << abc << endl;
+
+    int x = stoi(abc) % 11;
+    int y = stoi(abc.substr(1) + abc[0]) % 11;
+    int z = stoi(abc[2] + abc.substr(0, 2)) % 11;
+    cout << x << " " << y << " " << z << endl;
+
+    int xy = x + y;
+    int yz = y + z;
+    int xz = x + z;
+    cout << xy << " " << yz << " " << xz << endl;
+
+    int theSameNumber = finalTransform(xy) * 100 +
+                        finalTransform(yz) * 10 +
+                        finalTransform(xz);
+
+    cout << theSameNumber << endl;
+
+
+}
+
 int main() {
 
-    decode("ARZM");
+    cardTrick();
+
+//    decode("ARZM");
 //    cout << decodeMonth('L') << endl;
 
 //    cout << reverseInt(901) << endl;
