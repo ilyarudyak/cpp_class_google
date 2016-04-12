@@ -186,10 +186,29 @@ void magicNumber() {
     cout << add << endl;
 }
 
+// exercise 6
+int decodeMonth(char month) {
+    return month - 'A' +1;
+}
+int decodeDate(string date) {
+    return (date[0] - 'Q' + 1) * 10 + (date[1] - 'Q' + 1);
+}
+int decodeYear(char year) {
+    return 1995 + (year - 'A' + 1);
+}
+void decode(string code) {
+    cout << decodeMonth(code[0]) << "-";
+    cout << decodeDate(code.substr(1, 2)) << "-";
+    cout << decodeYear(code[3]) << endl;
+}
+
 int main() {
 
+    decode("ARZM");
+//    cout << decodeMonth('L') << endl;
+
 //    cout << reverseInt(901) << endl;
-    magicNumber();
+//    magicNumber();
 
 //    string banner = "FREEZY BREEZE";
 //    for (int i = 0; i < banner.size(); ++i) {
@@ -201,6 +220,28 @@ int main() {
 //    cricket();
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
