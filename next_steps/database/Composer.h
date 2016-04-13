@@ -38,6 +38,10 @@ public:
     void Demote(int decrement);
     // this method displays all the attributes of a composer.
     void Display();
+    // overloaded < operator
+//    bool operator <(const Composer& other) {
+//        return ranking_ < other.ranking_;
+//    }
 
 private:
     string first_name_;
